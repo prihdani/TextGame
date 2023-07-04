@@ -7,11 +7,11 @@ public class Game {
 
     JFrame window;
     Container container;
-    JPanel titleNamePanel, buttonPanel, mainTextPanel;
+    JPanel titleNamePanel, buttonPanel, mainTextPanel, inGameButtonPanel;
     JLabel titleNameLabel;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
     Font averageFont = new Font("Times New Roman", Font.PLAIN, 45);
-    JButton startingButton;
+    JButton startingButton, choice1, choice2, choice3, choice4;
     JTextArea textarea;
     TitleScreenHandler tsHandler = new TitleScreenHandler();
 
@@ -60,7 +60,7 @@ public class Game {
 
         mainTextPanel = new JPanel();
         mainTextPanel.setBounds(100,100,600,250);
-        mainTextPanel.setBackground(Color.BLUE);
+        mainTextPanel.setBackground(Color.black);
         container.add(mainTextPanel);
         textarea = new JTextArea("Ez egy teszt szöveg");
         textarea.setBackground(Color.BLACK);
@@ -69,6 +69,36 @@ public class Game {
         textarea.setFont(averageFont);
         textarea.setLineWrap(true);
         mainTextPanel.add(textarea);
+
+        inGameButtonPanel = new JPanel();
+        inGameButtonPanel.setBounds(250,350,300,150);
+        inGameButtonPanel.setBackground(Color.black);
+        inGameButtonPanel.setLayout(new GridLayout(4,1));
+        container.add(inGameButtonPanel);
+
+        choice1 = new JButton("teszt1");
+        choice1.setBackground(Color.black);
+        choice1.setForeground(Color.white);
+        choice1.setFont(averageFont);
+        inGameButtonPanel.add(choice1);
+
+        choice2 = new JButton("teszt2");
+        choice2.setBackground(Color.black);
+        choice2.setForeground(Color.white);
+        choice2.setFont(averageFont);
+        inGameButtonPanel.add(choice2);
+
+        choice3 = new JButton("teszt3");
+        choice3.setBackground(Color.black);
+        choice3.setForeground(Color.white);
+        choice3.setFont(averageFont);
+        inGameButtonPanel.add(choice3);
+
+        choice4 = new JButton("teszt4");
+        choice4.setBackground(Color.black);
+        choice4.setForeground(Color.white);
+        choice4.setFont(averageFont);
+        inGameButtonPanel.add(choice4);
     }
 
     public class TitleScreenHandler implements ActionListener {
