@@ -4,6 +4,8 @@ import java.awt.*;
 public class Game {
 
     JFrame window;
+    Container container;
+
     public static void main(String[] args) {
 
         new Game();
@@ -16,5 +18,6 @@ public class Game {
         window.getContentPane().setBackground(Color.BLUE);
         window.setLayout(null);
         window.setVisible(true);
+        container = window.getContentPane();
     }
 }
