@@ -5,12 +5,14 @@ import java.awt.event.ActionListener;
 
 public class Game {
 
+    int hp;
+    String weapon;
     JFrame window;
     Container container;
-    JPanel titleNamePanel, buttonPanel, mainTextPanel, inGameButtonPanel;
-    JLabel titleNameLabel;
+    JPanel titleNamePanel, buttonPanel, mainTextPanel, inGameButtonPanel, characterPanel;
+    JLabel titleNameLabel, hpLabel, hpLabelNumber, weaponLabel, weaponLabelName;
     Font titleFont = new Font("Times New Roman",Font.PLAIN,90);
-    Font averageFont = new Font("Times New Roman", Font.PLAIN, 45);
+    Font averageFont = new Font("Times New Roman", Font.PLAIN, 30);
     JButton startingButton, choice1, choice2, choice3, choice4;
     JTextArea textarea;
     TitleScreenHandler tsHandler = new TitleScreenHandler();
@@ -48,6 +50,7 @@ public class Game {
         startingButton = new JButton("Kezdés");
         startingButton.setBackground(Color.BLACK);
         startingButton.setForeground(Color.white);
+        startingButton.setFocusPainted(false);
         startingButton.addActionListener(tsHandler);
         buttonPanel.add(startingButton);
         startingButton.setFont(averageFont);
@@ -80,25 +83,64 @@ public class Game {
         choice1.setBackground(Color.black);
         choice1.setForeground(Color.white);
         choice1.setFont(averageFont);
+        choice1.setFocusPainted(false);
         inGameButtonPanel.add(choice1);
 
         choice2 = new JButton("teszt2");
         choice2.setBackground(Color.black);
         choice2.setForeground(Color.white);
         choice2.setFont(averageFont);
+        choice2.setFocusPainted(false);
         inGameButtonPanel.add(choice2);
 
         choice3 = new JButton("teszt3");
         choice3.setBackground(Color.black);
         choice3.setForeground(Color.white);
         choice3.setFont(averageFont);
+        choice3.setFocusPainted(false);
         inGameButtonPanel.add(choice3);
 
         choice4 = new JButton("teszt4");
         choice4.setBackground(Color.black);
         choice4.setForeground(Color.white);
         choice4.setFont(averageFont);
+        choice4.setFocusPainted(false);
         inGameButtonPanel.add(choice4);
+
+        characterPanel = new JPanel();
+        characterPanel.setBounds(100,15,600,50);
+        characterPanel.setBackground(Color.black);
+        characterPanel.setLayout(new GridLayout(1,4));
+        container.add(characterPanel);
+
+        hpLabel = new JLabel("HP:");
+        hpLabel.setFont(averageFont);
+        hpLabel.setForeground(Color.white);
+        characterPanel.add(hpLabel);
+
+        hpLabelNumber = new JLabel();
+        hpLabelNumber.setFont(averageFont);
+        hpLabelNumber.setForeground(Color.white);
+        characterPanel.add(hpLabelNumber);
+
+        weaponLabel = new JLabel("Weapon:");
+        weaponLabel.setFont(averageFont);
+        weaponLabel.setForeground(Color.white);
+        characterPanel.add(weaponLabel);
+
+        weaponLabelName = new JLabel();
+        weaponLabelName.setFont(averageFont);
+        weaponLabelName.setForeground(Color.white);
+        characterPanel.add(weaponLabelName);
+
+        playerStats();
+    }
+
+    public void playerStats(){
+        hp = 15;
+        weapon = "Stick";
+        weaponLabelName.setText(weapon);
+        hpLabelNumber.setText(String.valueOf(hp));
     }
 
     public class TitleScreenHandler implements ActionListener {
